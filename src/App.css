@@ -2,14 +2,13 @@ body {
   background-size: 1500px;
   transition: background-color 4s, background-image 4s; 
   background-image: url(/public/Cloudy.jpeg);
+  overflow: none;
 }
-
 h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
   color:rgb(237, 237, 140)
 }
-
 h2 {
   margin: 5px;
   color:coral;
@@ -24,29 +23,25 @@ input {
   width: 350px;
 }
 button {
-  grid-column: 2;
-  place-self: center;
-  width: 250px;
-  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 20vw;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 35px;
+  font-size: 20px; 
   border-radius: 30px;
   box-shadow: 5px 5px 10px 2px black;
-  margin: 15px;
   background-color:rgb(237, 237, 140)
 }
-.hidden {
-  display: none !important;
-}
 .parentContainer {
-  display: grid;
-  grid-template: auto / 20% 60% 20%; 
-  background-color: rgb(109, 104, 105);
+  display: flex;
+  flex-flow: column wrap; 
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 #title-bar {
-  grid-column: 2;
-  grid-row: 1; 
-  place-self: center;
   display: flex;
   justify-content: center;
   width: 400px;
@@ -55,33 +50,28 @@ button {
   border-radius: 50px;
   padding: 5px;
   background-color: rgba(0,0,0,.1);
-  margin: 0px 80px 0px 80px;
+  margin: 10px 80px 0px 80px;
+  margin-bottom: 10px;
 }
 .container {
-  grid-column: 2;
-  place-self: center;
-  display: flex;
-  flex-flow: column wrap;
+  display: flex; 
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  width: 700px;
+  width: 60vw;
   border: 2px rgb(237, 237, 140) solid;
   border-radius: 50px;
   padding: 15px;
-  background-color: rgba(0,0,0,.2);
-  margin-top: 50px;
   font-family: Arial, Helvetica, sans-serif;
   color:rgb(237, 237, 140);
 }
-#geolocate-button {
-  grid-column: 2;
-  width: 150px;
-  height: 30px;
+.geolocateButton {
+  justify-content: center;
+  align-items: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   border-radius: 20px;
   box-shadow: 2px 2px 5px 1px black;
-  margin: 5px;
   background-color:rgb(237, 237, 140)
 }
 #lat-display, #long-display {
@@ -94,4 +84,10 @@ hr {
 }
 #closest-sunshine-location {
   font-size: 30px;
+}
+
+.leaflet-container { 
+  justify-self: center;
+  height: 60vh;
+  width: min(100vw, 100vh);
 }

@@ -6,16 +6,13 @@ import CoordDisplay from './CoordDisplay';
 
 
 function App() {
-  const [ userCoords, setUserCoords ] = useState( {
-    Latitude: null,
-    Longitiude: null,  
-})
+  const [ userCoords, setUserCoords ] = useState('')
 
   return (
     <div className='parentContainer'>
       <Header/>
-      <LocationInput setUserCoords={ setUserCoords }/>
-      <CoordDisplay userCoords={ userCoords }/>
+      { userCoords ? <CoordDisplay userCoords={ userCoords }/> 
+      :<LocationInput setUserCoords={ setUserCoords }/> }     
     </div>
   )
 }

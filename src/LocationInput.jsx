@@ -42,22 +42,22 @@ const LocationInput = ({ setUserCoords }) => {
     }
 
     return (
-        <div className='container'>
+        <>
             { locationServicesEnabled ?
-            <div>
+            <div className={'container'}>
                 <h2>What is your current location?</h2>
                 { locationIsFetching ? <p>Finding your location...</p> 
-                : <button className={'geolocateButton'} onClick={ geoLocateUser }> Find Me! </button> }
+                : <button className='geolocateButton' onClick={ geoLocateUser }> Find Me! </button> }
             </div>
-            :   
-            <div>
+            :
+            <div className={'container'}>
                 <h2>Please enter your address below: </h2>
                 <p>Example: 1234 Drury Ln Pittsburgh PA 15106 </p>
               <input type="search" placeholder="street, city, state, zip" id="adress-input" onChange={ handleChange } required/>
-              <button onClick={ geocodeManualInput } >Find</button>
+              <button className='geolocate-button' onClick={ geocodeManualInput } >Find</button>
             </div>
             }
-        </div>
+        </>
     )
 
 
