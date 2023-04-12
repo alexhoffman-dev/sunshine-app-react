@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'; 
+import { MapContainer, useMap, TileLayer, Marker, Popup, Circle, Tooltip } from 'react-leaflet'; 
 
 // this component replaces the Location Input Component with a display of the users coordinates 
 // we want to use the leaflet library here to display the users location on a leaflet map comp
 
 const CoordDisplay = ({userCoords}) => { 
     const [ sunnyCoords, setSunnyCoords  ] = useState(''); 
+    const [ sunnyCoordMapCenter, setSunnyCoordMapCenter ] = useState(''); 
     const weatherAPI = 'https://api.weather.gov/points/'; 
     const orangeFill = { color: 'orange', opacity: .25 };
 
@@ -26,7 +27,7 @@ const CoordDisplay = ({userCoords}) => {
         // this logic takes our starting X, Y coordinates and increments on them .5 degrees of lat/long at a time
         // in an Ulam Spiral shape to find a truthy 'SUN' value in that points' forecast JSON
         // Timer initially set to 25 based on corner location of ulam sprial model 
-        // The radius checked at that position is about 97.5 miles or 156911 meters
+        // The radius checked at that position is about 97.5 miles or 157.1km
         while (timer < 25 && !isSunny) {
             if (!changeY) {
                 X = isPositive ? X + 0.5 : X - 0.5;
@@ -47,6 +48,7 @@ const CoordDisplay = ({userCoords}) => {
             timer++;
             if (isSunny) {
                 setSunnyCoords({Latitude: X, Longitude: Y});
+                findMapCenter(X, Y);
             };
             if (timer === 25) {
                 // here we could institute a 'want to extend your search?'
@@ -94,6 +96,11 @@ const CoordDisplay = ({userCoords}) => {
         let isSunny = currentForecast.includes("SUN");
         return isSunny;
     }
+    function findMapCenter(sunnyLat, sunnyLong) { 
+        let averageLatitude = parseFloat(userCoords.Latitude)/2 + parseFloat(sunnyLat)/2;
+        let avergeLongitude = parseFloat(userCoords.Longitude)/2 + parseFloat(sunnyLong)/2; 
+        // map.setView(averageLatitude, avergeLongitude); 
+    }
 
     return (
         <>
@@ -103,17 +110,17 @@ const CoordDisplay = ({userCoords}) => {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'/>
                 <Marker position={[userCoords.Latitude, userCoords.Longitude]}>
                     <Popup>
-                    You are here! <br/> Press the button above to find the closest sun!
+                    You are here! <br/> Press the button below to find the closest sun!
                     </Popup>
                 </Marker>
                 {sunnyCoords && 
                     <div>
                         <Marker position={[sunnyCoords.Latitude, sunnyCoords.Longitude]}>
-                        <Popup> <a href={`https://www.google.com/maps/search/?api=1&query=${sunnyCoords.Latitude}%2C${sunnyCoords.Longitude}`}>Directions to the sunshine!</a> </Popup>
+                        <Popup> <a href={`https://www.google.com/maps/search/?api=1&query=${sunnyCoords.Latitude}%2C${sunnyCoords.Longitude}`}>Directions to the sunshine!</a><br/><a href={`https://forecast.weather.gov/MapClick.php?lat=${sunnyCoords.Latitude}&lon=${sunnyCoords.Longitude}`}> Weather @ location</a> </Popup>
                         </Marker>
                     </div>
                 }
-                {sunnyCoords === 'No sun within a 97.5mi radius.' && }
+                {sunnyCoords === 'No sun within a 97.5mi radius.' && <Circle center={[userCoords.Latitude, userCoords.Longitude]} color={ orangeFill } radius={97.5}><Tooltip>No sun within a 97.5 mile radius.</Tooltip></Circle>}
             </MapContainer>                
             <button onClick={ initSunshineSearch }>
                 Find the Sun! 
