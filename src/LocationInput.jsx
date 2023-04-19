@@ -59,8 +59,6 @@ const LocationInput = ({ setUserCoords }) => {
             }
         </>
     )
-
-
 }
 
 export default LocationInput; 

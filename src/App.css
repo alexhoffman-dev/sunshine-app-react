@@ -1,7 +1,4 @@
-body {
-  background-size: 1500px;
-  transition: background-color 4s, background-image 4s; 
-  background-image: url(/public/Cloudy.jpeg);
+body { 
   overflow: none;
 }
 h1 {
@@ -36,10 +33,12 @@ button {
 }
 .parentContainer {
   display: flex;
-  flex-flow: column wrap; 
-  justify-content: center;
+  flex-flow: column nowrap; 
   align-items: center;
   gap: 10px;
+  background-size: cover;
+  height: 100vh;
+  transition: background-color 4s, background-image 4s;
 }
 #title-bar {
   display: flex;
