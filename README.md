@@ -8,6 +8,7 @@ This app is a refactor of it's first iteration written in vanilla JS. The goal w
 
 - [Features](#features)
 - [Usage](#usage)
+- [Future Goals and Acknowledgements](#future-goals-and-acknowledgements)
 - [Installation](#installation)
 - [License](#license)
 
@@ -17,20 +18,19 @@ This app is a refactor of it's first iteration written in vanilla JS. The goal w
 - In addition to finding the closest location with sunshine in the forecast, the app also provides a button for displaying ALL the locations within 20 consecutive queries which ends up being about a 100 mile square area. 
 - The location markers created on an instance of the Leaflet.js map class, each link to a Google Maps page for the user to find directions to the specified sunny location. 
 
-## Usage 🗺️
+## Usage
 
 1. The most common use case for this application comes from a personal desire to find some sunshine during the dreary Winters and Springs of the PNW I call home. 
 2. Example 2: Description of the example and how to run it.
 3. Example 3: Description of the example and how to run it.
 4. ...
 
-## Future Goals and Acknowledgements ⭐
+## Future Goals and Acknowledgements
 
 - Roadmap: Future goals for this project will be to incorporate travel time in to the calculation of calculating the relevant forecast for each API query so that the information is as up-to date as possible if the user intended to travel to said location. Once that function is fleshed out, I beleive adding a paramter to the search so the user could ostensibly find sunshine for the upcoming weekend, for example, as opposed to these searches always being contemporaneous. 
 - Credits: I'd love to take this small moment to thanks and acknowledge my friend Luke Donahue for his continued support editing and thinking through the process of developing this app!
 
-## Installation 📦
-### Available Scripts
+## Installation
 
 In the project directory, you can run:
 
