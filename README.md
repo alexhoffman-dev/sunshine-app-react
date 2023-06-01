@@ -11,9 +11,7 @@ This app is a refactor of it's first iteration written in vanilla JS. The goal w
 - [Installation](#installation)
 - [License](#license)
 
-## Features 🌞
-
-Highlight the key features and functionalities of your project.
+## Features
 
 - The primary feature of this app is finding the closest location to the user with the word 'sun' in the current forecast. To do this, the user is able to either input their location or use the built-in browser location services to inform the app of their current/relevant location. Starting at the user's input location, the app moves outward in an Ulam's Spiral in increments of 0.5deg of Latitude and Longitude where it queries the Weather.gov API. The app uses the [Weather.gov API](https://www.weather.gov/documentation/services-web-api) for relevant weather foracast data. 
 - In addition to finding the closest location with sunshine in the forecast, the app also provides a button for displaying ALL the locations within 20 consecutive queries which ends up being about a 100 mile square area. 
