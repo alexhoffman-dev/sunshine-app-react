@@ -4,7 +4,7 @@ The objective of this application is to take user location via the built in brow
 
 This app is a refactor of it's first iteration written in vanilla JS. The goal with this new version was to use concepts learned from greenfielding this code as an educational tool for learning core React concepts. Additionally, this version implements the Leaflet.js library for displaying the user's coordinates and potential sunny coordinates simulataenously on a map. 
 
-Please visit the live deploy of this site hosted via [Netlify here](where-is-the-sunshine.netlify.app). 
+Please visit the live deploy of this site hosted via [Netlify here](https://where-is-the-sunshine.netlify.app/). 
 
 ## Table of Contents
 
