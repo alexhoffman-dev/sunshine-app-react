@@ -76,7 +76,7 @@ const CoordDisplay = ({userCoords, transitionBackground }) => {
             console.log('API return is null @ properties.forecast object')
             debugger;
         }
-        if (response.status != 200) {
+        if (response.status !== 200) {
             console.log('status is not 200');
             debugger;
         };
@@ -85,7 +85,7 @@ const CoordDisplay = ({userCoords, transitionBackground }) => {
     async function isSunnyAtGridPoint(forecastURL, tries = 1) {
         let response = await fetch(forecastURL);
         let parsedResponse = await response.json();
-        if (response.status != 200) {
+        if (response.status !== 200) {
             if (response.status == 500) {
                 tries++;
                 if (tries < 10 ) {
