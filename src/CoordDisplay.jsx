@@ -86,7 +86,7 @@ const CoordDisplay = ({userCoords, transitionBackground }) => {
         let response = await fetch(forecastURL);
         let parsedResponse = await response.json();
         if (response.status !== 200) {
-            if (response.status == 500) {
+            if (response.status === 500) {
                 tries++;
                 if (tries < 10 ) {
                     return isSunnyAtGridPoint(forecastURL);
