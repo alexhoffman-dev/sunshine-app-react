@@ -27,7 +27,7 @@ const LocationInput = ({ setUserCoords }) => {
     async function geocodeManualInput() {
         let searchValue = manulEntryLocation.toUpperCase().replaceAll(' ','%20');
         let sanitizedQuery = searchValue.replaceAll(',','%2C');
-        if (sanitizedQuery == '') {
+        if (sanitizedQuery === '') {
             console.error('You need to enter a valid address')
             return
         } 
